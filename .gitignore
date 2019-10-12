@@ -3,3 +3,5 @@ containers/backend/data/*
 
 vendor/
 output/
+
+session.vim

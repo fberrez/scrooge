@@ -8,7 +8,7 @@ var (
 	defaultCurrencyKey = "defaultCurrency"
 )
 
-// UpdateAccount updates the balance account by adding (or substracted) the given amount.
+// UpdateAccount updates the balance account by adding (or subtracted) the given amount.
 // It returns the updated balance.
 func (b *Backend) UpdateAccount(accountID uuid.UUID, amount int64) (int, error) {
 	// prepares the query

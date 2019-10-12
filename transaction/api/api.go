@@ -93,6 +93,7 @@ func New() (*API, error) {
 	return api, nil
 }
 
+// NewGrpcConnection makes a new connection on the gRPC server.
 func (a *API) NewGrpcConnection(address string) error {
 	// makes a new grpc connection
 	var err error

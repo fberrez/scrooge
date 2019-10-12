@@ -46,7 +46,7 @@ type (
 		CreatedAt time.Time `json:"created_at" description:"Transaction creation date"`
 	}
 
-	// ResponseBalanceOut is used to give a reponse on a balance route.
+	// ResponseBalanceOut is used to give a response on a balance route.
 	ResponseBalanceOut struct {
 		// AccountID is the targeted account id.
 		AccountID uuid.UUID `json:"account_id" description:"Targeted Account ID"`

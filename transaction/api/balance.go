@@ -8,6 +8,8 @@ import (
 )
 
 type (
+	// AccountIn represents an account.
+	// It is used as argument in controllers.
 	AccountIn struct {
 		ID string `path:"id" description:"Account ID"`
 	}

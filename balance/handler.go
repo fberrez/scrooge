@@ -10,6 +10,7 @@ import (
 	"golang.org/x/net/context"
 )
 
+// Server is an impletation of the protobuf interface.
 type Server struct {
 	backend *backend.Backend
 }
@@ -27,7 +28,7 @@ func New() (*Server, error) {
 }
 
 // MakeTransaction updates the account corresponding to the given account ID
-// by adding or substracted the account's balance by the given amount.
+// by adding or subtracted the account's balance by the given amount.
 // It returns a response containing the account id and the updated balance.
 func (s *Server) MakeTransaction(ctx context.Context, in *scrooge.Transaction) (*scrooge.Response, error) {
 	log.WithField("timestamp", time.Now()).Info("Request 'make transaction' received")
@@ -49,6 +50,7 @@ func (s *Server) MakeTransaction(ctx context.Context, in *scrooge.Transaction) (
 	}, nil
 }
 
+// GetBalance returns the balance of the account corresponding to the given id.
 func (s *Server) GetBalance(ctx context.Context, in *scrooge.Account) (*scrooge.Response, error) {
 	log.WithField("timestamp", time.Now()).Info("Request 'get balance' received")
 

@@ -5,10 +5,13 @@ import (
 	"fmt"
 
 	"github.com/ghodss/yaml"
+	// lib/pq is used as a driver.
 	_ "github.com/lib/pq"
 	"github.com/ovh/configstore"
 )
 
+// Backend represents the instance which manages
+// the database.
 type Backend struct {
 	db *sql.DB
 }
