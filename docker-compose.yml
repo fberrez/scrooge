@@ -1,0 +1,57 @@
+version: '3.7'
+services:
+    postgres:
+        image: postgres:latest
+        container_name: scrooge_pg
+        restart: always
+        volumes:
+            - type: bind
+              source: ./containers/backend/schema.sql
+              target: /docker-entrypoint-initdb.d/schema.sql
+            - type: bind
+              source: ./containers/backend/data
+              target: /var/lib/postgresql/data
+        networks:
+            - scrooge 
+        environment:
+            POSTGRES_PASSWORD: myAwesomePassword
+            POSTGRES_DB: scrooge 
+
+    scrooge-balance:
+        image: fberrez/scrooge-balance
+        container_name: scrooge_balance
+        restart: always
+        volumes:
+            - type: bind
+              source: ./balance/config.yml
+              target: /config.yml
+        environment:
+            - CONFIGURATION_FROM=file:/config.yml
+            - GIN_MODE=release
+        links:
+            - postgres
+        networks:
+            - scrooge
+
+    scrooge-transaction:
+        image: fberrez/scrooge-transaction
+        container_name: scrooge_transaction
+        restart: always
+        volumes:
+            - type: bind
+              source: ./transaction/config.yml
+              target: /config.yml
+        environment:
+            - CONFIGURATION_FROM=file:/config.yml
+            - GIN_MODE=release
+        ports:
+            - 3001:3001
+        links:
+            - postgres
+            - scrooge-balance
+        networks:
+            - scrooge
+
+networks:
+    scrooge:
+        driver: bridge

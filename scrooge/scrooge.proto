@@ -1,0 +1,40 @@
+syntax = "proto3";
+package scrooge;
+
+// Transaction represents a transaction.
+message Transaction {
+    // AccountID is the ID of the account targeted 
+    // by the transaction.
+    string AccountID = 2;
+    // Amount is the transaction amount.
+    int64 Amount = 3;
+}
+
+// Account represents an account.
+message Account {
+    // AccountID is the ID of the account targeted 
+    // by the transaction.
+    string AccountID = 1;
+}
+
+// Response is the response sent by the balance
+// service when the transaction is done.
+message Response {
+    // AccountID is the ID of the account edited 
+    // by the transaction.
+    string AccountID = 1;
+    // Balance is the new balance after 
+    // the transaction has been applied.
+    int64 Balance = 2;
+}
+
+// Scrooge is the main service which makes the link
+// between the transaction and the balance services.
+service Scrooge {
+    // MakeTransaction is used to make a transaction on an account.
+    rpc MakeTransaction(Transaction) returns (Response) {}
+
+    // GetBalance returns the balance of the account corresponding to
+    // the given account id.
+    rpc GetBalance(Account) returns (Response) {}
+}

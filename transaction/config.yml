@@ -1,0 +1,19 @@
+- key: database
+  value: >
+        {
+          "db_name": "scrooge",
+          "user":"postgres",
+          "password": "myAwesomePassword",
+          "addr": "postgres",
+          "port": 5432,
+          "skip_verify": true,
+        }
+
+- key: defaultCurrency
+  value: "EUR"
+
+- key: port
+  value: 3001
+
+- key: scrooge 
+  value: scrooge-balance:3000 

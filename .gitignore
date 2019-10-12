@@ -1,0 +1,5 @@
+containers/backend/data/*
+!containers/backend/data/.gitkeep
+
+vendor/
+output/
