@@ -81,20 +81,20 @@ $ curl -L -XPUT -H 'Content-Type:application/json' --data '{
 
 ```sh
 .
-├── balance 					# balance is the microservice used to interact with account balances.
-│   └── config.yml 				# balance configuration file
-├── cmd 						# main folder, used to start microservices in your local environment
-├── containers 					# contains containers data
+├── balance                     # balance is the microservice used to interact with account balances.
+│   └── config.yml              # balance configuration file
+├── cmd                         # main folder, used to start microservices in your local environment
+├── containers                  # contains containers data
 │   └── backend
-│       ├── data 				# contains postgres data
-│       └── schema.sql 			# database schema executed on the first run
+│       ├── data                # contains postgres data
+│       └── schema.sql          # database schema executed on the first run
 ├── docker-compose.yml			
-├── Dockerfile-balance			# Dockerfile used to build balance image
-├── Dockerfile-transaction		# Dockerfile used to build transaction image
-├── scrooge						# scrooge contains the proto file
-│   ├── scrooge.pb.go			# "compiled" proto file
-│   └── scrooge.proto			# proto file, used to make interact with balance from the outside
-└── transaction					# transaction is the microservice used to makes transactions
-    └── config.yml				# transction configuration file
+├── Dockerfile-balance          # Dockerfile used to build balance image
+├── Dockerfile-transaction      # Dockerfile used to build transaction image
+├── scrooge                     # scrooge contains the proto file
+│   ├── scrooge.pb.go           # "compiled" proto file
+│   └── scrooge.proto           # proto file, used to make interact with balance from the outside
+└── transaction                 # transaction is the microservice used to makes transactions
+    └── config.yml              # transction configuration file
 
 ```
