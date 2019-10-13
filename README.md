@@ -33,6 +33,9 @@ $ make
 $ docker build -t fberrez/scrooge-balance -f Dockerfile-balance .
 $ docker build -t fberrez/scrooge-transaction -f Dockerfile-transaction .
 
+# Creates directory for postgres data
+$ mkdir containers/backend/data
+
 # Runs docker images
 $ docker-compose up -d
 ```

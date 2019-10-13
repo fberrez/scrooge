@@ -1,5 +1,4 @@
-containers/backend/data/*
-!containers/backend/data/.gitkeep
+containers/backend/data
 
 vendor/
 output/
